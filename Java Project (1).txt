@@ -1,0 +1,75 @@
+﻿Task1
+
+
+package ConstructWeekProject;
+//Payment interface with processPayment methods
+interface Payment {
+ void processPayment();
+}
+//CreditCardPayment class implementing the Payment interface
+class CreditCardPayment implements Payment {
+ @Override
+ public void processPayment() {
+     System.out.println("Processing credit card payment...");
+     System.out.println("Payment processed successfully.");
+     // Additional logic for credit card payment processing
+ }
+}
+// PayPalPayment class implementing the payment interface
+class PayPalPayment implements Payment {
+ @Override
+ public void processPayment() {
+     System.out.println("Processing PayPal payment...");
+     System.out.println("Payment Processed successfully.");
+     // Additional logic for PayPal payment processing
+ }
+}
+public class PaymentProcessor {
+        public static void main(String[] args) {
+                // TODO Auto-generated method stub
+                
+                
+                //Creating instance of each Payment class
+                  Payment payment1 = new CreditCardPayment();
+                Payment payment2 = new PayPalPayment();
+                processPayment(payment1);
+                processPayment(payment2);
+        }
+        
+          public static void processPayment(Payment payment) {
+                payment.processPayment(); // Calls the appropriate method based on the object type
+            }
+}
+
+
+
+
+Task2
+
+
+import java.util.Scanner;
+package ConstructWeekProject;
+public class ExceptionHandlingDemo {
+        public static void main(String[] args) {
+                // TODO Auto-generated method stub
+                
+       Scanner scanner = new Scanner(System.in);
+      
+       System.out.print("Enter a number: ");
+       int numerator = scanner.nextInt();
+      
+       System.out.print("Enter another number: ");
+       int denominator = scanner.nextInt();
+      
+       try {
+           int result = numerator / denominator;
+           System.out.println("Result: " + result);
+       } catch (ArithmeticException e) {
+           System.out.println("Error: Division by zero is not allowed.");
+       } finally {
+           System.out.println("This code will always execute.");
+       }
+      
+       scanner.close();
+        }
+}
